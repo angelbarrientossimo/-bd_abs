@@ -1,0 +1,337 @@
+1 ->Crea un programa que solicite un número por pantalla al usuario y siga pidiéndolo hasta que el usuario introduzca un número válido.
+
+num = input("Dame un num")
+while (not num.isdigit()):
+    num = input("Dame un num")
+print(num)
+
+
+2-> Crea un programa que solicite un número n y un valor k y que muestre por la terminal los primeros k elementos de la tabla de multiplicar de n.
+
+n = input("Dame un numero n")
+k = input("Dame un numero k")
+for i in range(0 , int(k)):
+    print(int(n) * i)
+
+3-> Crea un programa que solicite un número al usuario y dibuje un triángulo con asteriscos cuya base sea el número introducido.
+
+Ejemplo: si el número introducido es 5 el resultado será:
+
+num = input("Dame un numero")
+var = "*"
+for i in range(0, int(num)):
+      var +=  "*"
+      print(str(var))
+
+4- Pirámide de asteriscos
+
+# Solicitar número impar
+while True:
+    n = int(input("Introduce un número impar: "))
+    if n % 2 != 0:
+        break
+    print("El número debe ser impar. Inténtalo de nuevo.")
+
+# Dibujar pirámide con base = n
+altura = (n + 1) // 2
+for i in range(1, altura + 1):
+    asteriscos = 2 * i - 1
+    espacios = (n - asteriscos) // 2
+    print(' ' * espacios + '*' * asteriscos)
+
+
+5->Número mayor y menor Crea un programa que pida al usuario que introduzca 5 números y luego le diga cuál es el mayor y el menor de todos ellos de la forma: El número mayor es <mayor> y el menor es <menor>
+
+
+num1 = int(input("Dame el primer numero"))
+num2 = int(input("Dame el segundo numero"))
+num3 = int(input("Dame el tercer numero"))
+num4= int(input("Dame el cuarto numero"))
+num5 = int(input("Dame el quinto numero"))
+
+lista = [num1,num2,num3,num4,num5]
+lista.sort()
+
+print("El numero menor")
+print(lista[0])
+print("El mayor es")
+print(lista[4])
+
+6. Conversión de unidades
+Crea un programa que convierta entre diferentes unidades de longitud (milímetros, centímetros, metros y kilómetros). El usuario introducirá primero la cantidad, luego la unidad de medida en que está y finalmente la unidad de medida a la que se va a convertir.
+
+num1 = int(input("Dame el numero"))
+var1 = str(input("Dame unidad de pesaje"))
+var2 = str(input("Dame unidad a convertir"))
+
+match var1:
+    case "mm":
+        if var2 == "mm":
+            print("Estas en esa unidad")
+        elif var2 == "cm":
+            num1 *= 10
+        elif var2 == "m":
+            num1 *= 100
+        elif var2 == "km":
+            num1 *= 1000
+
+    case "cm":
+        if var2 == "mm":
+            num1 = num1/10
+        elif var2 == "cm":
+            print("Estas en esa unidad")
+        elif var2 == "m":
+            num1 *= 10
+        elif var2 == "km":
+            num1 *= 100
+    case "m":
+        if var2 == "mm":
+            num1 = num1/100
+        elif var2 == "cm":
+            num1 = num1/10
+        elif var2 == "m":
+            print("Estas en esa unidad")
+        elif var2 == "km":
+            num1 *= 10
+    case "km":
+        if var2 == "mm":
+            num1 = num1/1000
+        elif var2 == "cm":
+            num1 = num1/100
+        elif var2 == "m":
+            num1 = num1/10
+        elif var2 == "km":
+            print("Estas en esa unidad")
+print(num1)
+
+7. Acierta el número
+Crea un programa que genere un número aleatorio entre 0 y 100 y el usuario tenga que adivinarlo. Cada vez que el usuario introduzca un número el programa le dirá si el número es más alto o más bajo.
+
+Para generar un número aleatorio puedes utilizar la función randint(a, b) que devuelve un entero aleatorio entre a y b. Para poder utilizar esta función antes tienes que importar la librería con la orden from random import *
+
+
+import random
+random_number = random.randint(0,100)
+print(random_number)
+num = int(input("dame un valor"))
+while num is not random_number:
+    if num > random_number:
+        print("Te has pasado")
+        num = int(input("dame un valor"))
+    else:
+        print("Te quedaste corto")
+        num = int(input("dame un valor"))
+print("suuu")
+
+
+8. Piedra, papel o tijeras
+Crea un programa que implemente el clásico juego de piedra, papel, tijeras, lagarto y spock.
+
+import random
+contador_maquina = int(0)
+contador_jugador = int(0)
+while contador_maquina < 5 or contador_jugador < 5:
+    random_number = random.randint(0,4)
+    
+    jugador = str(input("que escoges¿?"))
+    match jugador:
+        case "Piedra":
+            valor_jugador ="Piedra"
+        case "Papel":
+            valor_jugador="Papel"
+        case "Tijeras":
+            valor_jugador="Tijeras"
+        case "Largarto":
+            valor_jugador="Lagarto"
+        case "Spock":
+            valor_jugador="Spock"
+    match random_number:
+        case 0:
+            valor_maquina ="Piedra"
+        case 1:
+            valor_maquina="Papel"
+        case 2:
+            valor_maquina="Tijeras"
+        case 3:
+            valor_maquina="Lagarto"
+        case 4:
+            valor_maquina="Spock"
+    if valor_jugador == valor_maquina:
+        print("misma jugada")
+    else:
+        if valor_jugador == "Piedra" and valor_maquina == "Lagarto" or valor_maquina== "Tijeras":
+            contador_jugador += 1
+            print(contador_jugador,contador_maquina)
+        elif valor_jugador == "Lagarto" and valor_maquina == "Spock" or valor_maquina == "Papel":
+            contador_jugador += 1
+            print(contador_jugador,contador_maquina)
+        elif valor_jugador == "Spock" and valor_maquina == "Tijeras" or valor_maquina == "Piedra":
+            contador_jugador += 1
+            print(contador_jugador,contador_maquina)
+        elif valor_jugador == "Tijeras" and valor_maquina == "Lagarto" or valor_maquina == "Papel":
+            contador_jugador += 1
+            print(contador_jugador,contador_maquina)
+        elif valor_jugador == "Papel" and valor_maquina =="Spock" or valor_maquina =="Piedra":
+            contador_jugador += 1
+            print(contador_jugador,contador_maquina)
+        else:
+            contador_maquina += 1
+            print(contador_jugador,contador_maquina)
+print("Buena partida")
+            
+
+
+
+9.- Secuencia de Fibonacci
+Crea un programa que genere los primeros n números de la secuencia de Fibonacci. Recuerda que la secuencia de Fibonacci es:
+
+
+num = int(input("Cuantos numero de la secuencia de fibonacci quieres¿?"))
+if num == 0:
+    resultado = 1
+elif num == 1:
+    resultado = 1
+else:
+    lista = [1,1]
+    for i in range(2,num + 1):
+        valor1 = (i - 2)
+        valor2 = (i - 1)
+        lista.append(valor1 + valor2)
+if num == 0 or num == 1:
+    print(resultado)
+else:
+    print(lista)
+
+
+10. Números primos
+Crea un programa que solicite un número al usuario y le diga si es primo o no. Un número primo solo es divisible por 1 y por sí mismo.
+
+num = int(input("Dame un numero"))
+
+for i in range(2,num - 1):
+    valores = num % i
+    print(i,valores)
+    if valores == 0:
+        resultado = "Este numero no es primo"
+        break
+    else:
+        resultado = ("Este numero es primo")
+print(resultado)
+
+
+
+11. Factorial de un número
+Crea un programa que pida un número entero n y calcule su factorial. Recuerda que el factorial de un número n (denotado como n!) se define como:
+
+num = int(input("Dame un numero"))
+
+resultado = 1
+for i in range(1,num+1):
+    resultado = resultado * i
+    print(resultado)
+
+12. Contador de vocales y consonantes
+Crea un programa que solicite al usuario una cadena de texto y muestre cuántas vocales y cuántas consonantes contiene.
+
+cadena = "hola que tal"
+contadorv = 0
+contadorc = 0
+contadorespacios = 0
+for i in cadena:
+    if i in " ":
+        contadorespacios += 1
+    elif i in "aeiou":
+        contadorv += 1
+    else:
+        contadorc += 1
+print(contadorc, contadorv, contadorespacios)
+
+13. Invertir una cadena
+Crea un programa que pida al usuario una cadena de texto y muestre la misma cadena invertida.
+
+cadena = "hola que tal"
+cadena_invertida = cadena[::-1]
+print(cadena_invertida)
+
+
+14. Palíndromos
+Crea un programa que solicite al usuario una palabra y determine si es un palíndromo (se lee igual al derecho y al revés).
+
+
+cadena = "oso"
+cadena_invertida = cadena[::-1]
+if cadena == cadena_invertida:
+    print("Es un palindromo")
+else:
+    print("No lo es")
+
+
+15. Números pares e impares
+Crea un programa que pida al usuario un número entero positivo n y muestre todos los números pares e impares entre 1 y n.
+
+
+num = int(input("Dame un numero"))
+contador_pares = 0
+contador_impares = 0
+for i in range(1,num +1):
+    valor = i % 2
+    if valor == 0:
+        contador_pares += 1
+    else:
+        contador_impares +=1
+print("pares",  contador_pares,"impares", contador_impares)
+
+
+
+16. Suma de dígitos
+Crea un programa que pida al usuario un número entero y calcule la suma de todos sus dígitos.
+
+Ejemplo: 327 → 3 + 2 + 7 = 12.
+
+num = int(input("Dame un numero"))
+digitos = [int(d) for d in str(num)]
+suma = 0
+for i in digitos:
+    suma = suma + i
+print(suma)
+
+
+17. Calculadora simple
+Crea un programa que pida al usuario dos números y una operación (suma, resta, multiplicación o división) y muestre el resultado.
+
+
+num = int(input("Dame un numero"))
+num1 = int(input("Dame un numero"))
+operacion = str(input("Dime una operacion\n"))
+resultados = 1
+if operacion not in ["suma", "resta", "multiplicacion", "division"]:
+    resultados = 0
+else:
+    match operacion:
+        case "suma":
+            resultado = num + num1
+        case "resta":
+            resultado = num - num1
+        case "multiplicacion":
+            resultado = num * num1
+        case "division":
+            resultado = num / num1
+if resultados == 0:
+    print("Esa no es una operacion valida")
+else:
+    print(resultado)
+
+20. Ordenar lista de números
+Crea un programa que pida al usuario una lista de números separados por comas y muestre la lista ordenada de menor a mayor.
+
+entrada = input("Ingresa una lista de números separados por comas: ")
+numeros = [int(num) for num in entrada.split(',')]
+numeros_ordenados = sorted(numeros)
+
+print("Lista ordenada:", numeros_ordenados)
+
+
+
+
+
+

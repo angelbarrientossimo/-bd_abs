@@ -1,0 +1,365 @@
+Dudas ejercicio -> 13 (con los espacios no me funciona)
+--------------------------------------------------------------------------------------------
+1. Contar vocales y consonantes
+Escribe una función que reciba una cadena y cuente cuántas vocales y consonantes contiene.
+
+cadena_texto = "Hola que tAl"
+contador = 0
+contador1 = 0
+for letra in cadena_texto:
+    if letra == " ":
+        print(" ")
+    elif letra.lower() in "aeiou":
+        contador += 1
+    elif letra.lower() not in "aeiou": 
+        contador1 += 1
+print(contador, contador1)
+
+
+2. Invertir una cadena
+Crea un programa que invierta una cadena.
+
+cadena_texto = "Hola que tAl"
+
+print( cadena_texto[::-1])
+
+
+
+3. Verificar palíndromo
+Escribe un programa que verifique si una cadena es un palíndromo (se lee igual de izquierda a derecha y de derecha a izquierda).
+
+cadena_texto = "Hola que tAl"
+derechas = cadena_texto[::1]
+reves = cadena_texto[::-1]
+if derechas == reves:
+    print("Es un palíndromo")
+else:
+    print("No es un palíndromoo")
+
+
+
+4. Contar palabras
+Crea una función que cuente cuántas palabras hay en una cadena, suponiendo que las palabras están separadas por espacios.
+
+cadena_texto = "Hola que tAl"
+
+cadena_texto1 = len(cadena_texto.strip().split())
+print(cadena_texto1)
+
+5. Eliminar caracteres repetidos
+Escribe una función que elimine los caracteres duplicados en una cadena, manteniendo solo la primera aparición de cada uno.
+
+cadena_texto = "Hola que tAl"
+print(set(cadena_texto))
+
+
+
+6. Mayúsculas y minúsculas
+Escribe un programa que convierta las letras minúsculas de una cadena en mayúsculas y viceversa.
+
+cadena_texto = "Hola que tAl"
+for letra in cadena_texto:
+    if letra.islower():
+        print(letra.upper())
+    else:
+        print(letra.lower())
+
+
+7. Invertir palabras de una cadena
+Escribe un programa que invierta el orden de las palabras de una cadena, manteniendo las palabras originales intactas.
+
+cadena_texto = "Hola que tAl"
+cadena_texto1 = cadena_texto.split()
+cadena_texto1.reverse()
+print(cadena_texto1)
+
+
+
+8. Anagrama
+Crea un programa que verifique si dos cadenas son anagramas. Se considera que dos palabras son anagramas si tienen las mismas letras en diferente orden, por ejemplo, lácteo y coleta.
+
+
+cadena_texto = "lacteo"
+cadena_texto1 = "coleta"
+contador0 = len(cadena_texto)
+contador = 0
+for i in cadena_texto:
+    if i in cadena_texto1:
+        contador += 1
+if contador == contador0:
+    print("Estas cadenas son anagramas")
+else:
+    print("Estas cadenas no son anagramas")
+
+
+9:/
+
+10. Quitar caracteres alfanuméricos
+Escribe un programa que elimine todos los caracteres no alfanuméricos (como signos de puntuación) de una cadena.
+
+
+cadena_texto = "hola, que tal. n/////"
+alfanumericos = [i for i in cadena_texto if i.isalnum()]
+res = "".join(alfanumerico)
+print(res)
+
+11. Transformar a camelCase
+Escribe un programa que transforme una cadena de palabras separadas por espacios o guiones en formato camelCase (la primera letra de cada palabra, excepto la primera, debe ser mayúscula y no debe haber espacios ni guiones).
+
+cadena_texto = "hola, que tal. n/////"
+cadena = cadena_texto.title()
+cadena = cadena.replace (" ", "").replace("-","")
+cadema =  cadena[0].lower() + cadena[1:]
+print(cadena)
+
+12. Codificación RLE (Run-Length Enconding)
+Escribe una función que implemente la codificación por longitud de ejecución (RLE), que consiste en comprimir una cadena representando las secuencias consecutivas de caracteres iguales con el carácter seguido de la cantidad de repeticiones.
+
+Por ejemplo, la cadena aaron la reemplazaría por a2r1o1n1. Por simplicidad, puedes asumir que un carácter no se va a repetir más de 9 veces consecutivas.
+
+cadena = "aabremeeee que tal"
+longitud = len(cadena)
+resultado = ""
+contador = 1
+
+for i in range(1, longitud):
+    if cadena[i] == cadena[i - 1]:
+        contador += 1
+    else:
+        resultado += cadena[i - 1] + str(contador)
+        contador = 1
+
+
+resultado += cadena[-1] + str(contador)
+
+print("Cadena original:", cadena)
+print("Codificada RLE :", resultado)
+
+
+
+13. Decodificar RLE
+Crea una función que decodifique una cadena que ha sido comprimida usando el método RLE.
+
+
+cadena = "a2b1r1e1m1e4"
+print(len(cadena))
+resultado =""
+for i in range(0,len(cadena),2):
+    resultado +=(cadena[i]*int(cadena[i+1]))
+
+print(resultado)
+
+14/. -> Diccionarios
+
+15. Comparar cadenas por valor ASCII
+Escribe una función que compare dos cadenas sumando el valor ASCII de cada carácter y devuelva cuál tiene un mayor valor total. Para este ejercicio ten en cuenta que la función integrada ord() devuelve el valor ASCII de un carácter
+cadena1 = "como estan los maquinas"
+cadena2 = "hola que tal"
+bucle1 = len(cadena1)
+bucle2 = len(cadena2)
+resultado1 = 0
+resultado2 = 0
+for i in range(0,bucle1):
+    resultado1 += ord(cadena1[i])
+
+for i in range(0,bucle2):
+    resultado2 += ord(cadena2[i])
+
+if resultado1 > resultado2:
+    print(resultado1)
+else:
+    print(resultado2)
+
+16. Contar la longitud de palabra más larga
+Escribe un programa que reciba una cadena y devuelva la longitud de la palabra más larga
+
+cadena = "como estan los maquinas"
+lista = cadena.split()
+longitud_final = 0
+for i in lista:
+    longitud = len(i)
+    if longitud > longitud_final:
+        longitud_final = longitud
+print(longitud_final)
+
+
+17. Formatear número con separador de miles
+Escribe una función que tome un número de forma de cadena y le agregue separadores de miles.
+
+Ejemplo: "123456756" debería convertirse en "123.456.789".
+
+
+cadena = "12345675"
+cadena1 = cadena[::-1]
+contador = 0
+print(cadena1)
+resultado =""
+for i in cadena1:
+   
+    if contador == 3:
+        contador = 0
+        resultado += "."
+    contador += 1
+    resultado += i
+resultado1 = resultado[::-1]
+print(resultado1)
+
+
+18. Rotar caracteres de una cadena
+Escribe una función que rote una cadena hacia la izquierda un número dado de veces.
+
+Ejemplo: "abcdef" rotado 2 veces convierte la cadena en "cdefab".
+
+cadena = "abcdef"
+rotacion_iz = 2
+cadena_auxiliar =""
+cadena_extra =""
+for i in cadena[:rotacion_iz]:
+    cadena_extra += i
+for i in cadena[rotacion_iz:]:
+    cadena_auxiliar += i
+cadena_auxiliar1 = cadena_auxiliar.split()
+cadena_extra1 = cadena_extra.split()
+cadena_auxiliar1.extend(cadena_extra1)
+print("".join(cadena_auxiliar1))
+
+
+
+19. Eliminar espacios extra
+Escribe un programa que elimine los espacios repetidos en una cadena, dejando solo un espacio entre cada palabra.
+
+Ejemplo: "Hola mundo Python" → "Hola mundo Python".
+
+
+cadena = "Hola  mundo  Python"
+resultado1 = cadena.split()
+resultado2 = " ".join(resultado1)
+print(resultado2)
+
+
+
+
+20. Reemplazar vocales
+Crea una función que reemplace todas las vocales de una cadena por un carácter dado.
+
+Ejemplo: "hola mundo", "*" → "h*l* m*nd*".
+
+
+
+
+cadena = "hola mundo"
+
+for i in cadena:
+    if i in "aeiou":
+        print("*",end="")
+    else:
+        print(i,end="")
+
+
+
+21. Subcadenas
+Escribe un programa que reciba una cadena y una subcadena y cuente cuántas veces aparece la subcadena en la cadena principal.
+
+
+cadena = "hola como estas, hola que tal, hola"
+subcadena = "hola"
+contador = 0
+lista = cadena.split()
+lista_subcadena = subcadena.split()
+for i in range(len(lista)):
+    if lista[i] == lista_subcadena[0]:
+        contador += 1
+print("La subcadena se encuentra ",contador ,"veces en la cadena")
+
+
+
+22. Primer carácter no repetido
+Crea una función que encuentre el primer carácter que no se repite en una cadena.
+
+Ejemplo: "aabccde" → "b".	
+
+
+cadena = "aabccdde"
+for i in range(0,len(cadena)-1):
+    if cadena[i] == cadena[i + 1]:
+        continue
+    else:
+        print("el primer caracter que no se repite es",cadena[i+1])
+        break
+
+
+
+25. Contar letras mayúsculas
+Escribe una función que cuente cuántas letras mayúsculas contiene una cadena.
+
+cadena ="HolA"
+contador = 0
+for i in range(len(cadena)):
+    if cadena[i] == cadena[i].upper():
+        contador += 1
+print("Nº de mayusuclas en la cadena",contador)
+
+
+26. Insertar carácter cada n posiciones
+Crea un programa que inserte un carácter dado cada n posiciones en una cadena.
+
+
+
+cadena ="python"
+contador = 0
+lista = []
+for i in cadena:
+    lista += i
+for i in range(2*len(lista)):
+    if contador == 1:
+        lista.insert(i,"*")
+        contador = 0
+    else:
+        contador += 1
+print("".join(lista))
+
+30. Cifrado César
+Crea un programa que implemente el cifrado César. El usuario introducirá una cadena y un número de desplazamiento, y el programa devolverá la cadena cifrada.
+
+cadena ="abcde"
+separador = 3
+contador = 0
+lista = []
+lista_abecedario = []
+abecedario ="abcdefghijqlmnñopqrstuvwxyz"
+for i in cadena:
+    lista += i
+for i in abecedario:
+    lista_abecedario += i
+for i in lista:
+    for x in range(len(lista_abecedario)):
+        if i == lista_abecedario[x]:
+            lista[contador] = lista_abecedario[x + 3]
+            contador += 1
+print(lista)
+
+31. Decodificar Cifrado César
+Crea un programa que descifre una cadena que ha sido codificada con el Cifrado César, conociendo el número de desplazamiento.
+
+cadena ="defgh"
+separador = 3
+contador = 0
+lista = []
+lista_abecedario = []
+abecedario ="abcdefghijqlmnñopqrstuvwxyz"
+for i in cadena:
+    lista += i
+for i in abecedario:
+    lista_abecedario += i
+for i in lista:
+    for x in range(len(lista_abecedario)):
+        if i == lista_abecedario[x]:
+            lista[contador] = lista_abecedario[x - 3]
+            contador += 1
+print("".join(lista))
+
+
+
+
+
+

@@ -1,0 +1,222 @@
+nombres = [
+    "Alejandro", "María", "Javier", "Lucía", "Carlos", "Sofía", "Miguel", "Ana", "Manuel", "Isabel", "Pedro", "Carmen", "Jorge", "Elena", "Juan", "Laura", "Antonio", "Patricia", "David", "Claudia", "Francisco", "Marta", "Sergio", "Teresa", "Luis", "Raquel", "Andrés", "Paula", "Daniel", "Verónica", "Fernando", "Sara", "Pablo", "Irene", "Álvaro", "Natalia", "Hugo", "Eva", "Diego", "Cristina", "Jesús", "Rosa", "Roberto", "Alicia", "Ángel", "Beatriz", "Ricardo", "Julia", "Adrián", "Silvia", "Alberto", "Victoria", "Raúl", "Pilar", "Ramón", "Lidia", "Óscar", "Ariadna", "Gonzalo", "Mónica", "Rubén", "Esther", "Santiago", "Nuria", "Iván", "Ainhoa", "Eduardo", "Berta", "Marcos", "Noelia", "Enrique", "Elisa", "Emilio", "Fátima", "Vicente", "Gabriela", "Mario", "Olga", "Rafael", "Lorena", "Mariano", "Cristina", "Eugenio", "Mercedes", "Félix", "Amparo", "Sebastián", "Rocío", "Alfredo", "Esperanza", "Álex", "Celia", "Héctor", "Andrea", "Tomás", "Inés", "Marcelo", "Gloria", "Marina", "Belén", "Valentín", "Miriam", "Guillermo", "Ángela", "Joaquín", "Gemma", "Fabián", "Daniela", "Víctor", "Dolores", "Marcos", "Tamara", "Braulio", "Lourdes", "Federico", "Gema", "Julián", "Nicolás", "Leandro", "Manuela", "Agustín", "Elsa", "Julio", "Consuelo", "Ismael", "Alejandra", "Joaquín", "Milagros", "Gregorio", "Inmaculada", "Salvador", "Carla", "Esteban", "Carolina", "Fausto", "Emilia", "Alfonso", "Amalia", "Baltasar", "Adela", "Humberto", "Blanca", "Aníbal", "Araceli", "César", "Candela"
+]
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Ordenando elementos
+Mostrar los nombres ordenados alfabéticamente en orden inverso.
+
+
+nombres.sort()
+nombres.reverse()
+print(nombres)
+
+
+2. Contando elementos
+Contar el número de nombres que comienzan con la letra a
+
+contador = 0
+for i in nombres:
+    if i[0] == "A" or i[0] == "a":
+        contador += 1
+print(contador)
+
+
+
+3.Buscar un elementos
+Pregunte al usuario su nombre y le indique si está en la lista, y en caso afirmativo, en qué posición está.
+
+
+usuario = str(input("Dime tu nombre "))
+nombre = False
+contador = 0
+for i in nombres:
+    if i == usuario:
+        nombre = True
+        
+        break
+    else:
+        nombre = False
+        contador += 1
+if nombre == True:
+    print(nombre,contador)
+else:
+    print(nombre)
+
+
+
+4. Primeros elementos
+Pregunte al usuario su nombre y le muestre el listado de todos los nombres que se encuentran delante del suyo.
+
+
+
+usuario = str(input("Dime tu nombre "))
+nombre = False
+contador = 0
+for i in nombres:
+    if i == usuario:
+        nombre = True
+        
+        break
+    else:
+        nombre = False
+        contador += 1
+if nombre == True:
+    for i in range(contador):
+        print(nombres[i])
+else:
+    print(nombre)
+
+5. Obtener número de nombres de una longitud
+Pregunte al usuario un número y le diga cuántos nombres hay en la lista con la misma longitud que el número indicado
+
+
+contador = 0
+longitud = int(input("Dame la longitud de los nombres de busqueda"))
+for i in nombres:
+    if len(i) == longitud:
+        contador += 1
+print(contador)
+
+6. Nombres cortos
+Muestre todos los nombres cuya longitud sea igual o inferior a 4 caracteres
+
+
+
+for i in nombres:
+    if len(i) <= 4:
+        print(i)
+
+7. Número de vocales
+Indique cuántas veces se repite cada una de las vocales entre todos los nombres (ignorando mayúsculas y minúsculas)
+
+
+
+contador_a = 0
+contador_e = 0
+contador_i = 0
+contador_o = 0
+contador_u = 0
+
+for i in nombres:
+    for x in i:
+        if x in "aA":
+            contador_a += 1
+        elif x in "eE":
+            contador_e += 1
+        elif x in "iI":
+            contador_i += 1
+        elif x in "oO":
+            contador_o += 1
+        elif x in "uU":
+            contador_u += 1
+print(contador_a,contador_e,contador_i,contador_o,contador_u)
+
+
+8. Número de letras
+Imprima el número de veces que se repite cada letra del abecedario entre todos los elementos de la lista.
+
+
+abecedario = "abcdefghijklmnñopqrstuvwxyz"
+abecedario = abecedario.lower()
+conteos = [0] * len(abecedario)
+for nombre in nombres:
+    nombre = nombre.lower() 
+    for letra in nombre:
+        for i in range(len(abecedario)):
+            if letra == abecedario[i]:
+                conteos[i] += 1
+
+for i in range(len(abecedario)):
+    print(f"{abecedario[i]}: {conteos[i]}")
+
+
+
+9.Sumar elementos de una lista
+Dada una lista de números, escribe un programa que calcule y muestre la suma de todos sus elementos.
+
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for i in lista:
+    print(sum(lista))
+
+
+10. Contar elementos específicos
+Dada una lista de palabras, permite al usuario ingresar una palabra y cuenta cuántas veces aparece en la lista.
+
+
+
+palabra = str(input("Dime una palabra"))
+contador = 0
+for i in nombres:
+    if i == palabra:
+        contador += 1
+print("Esa palabra se repite ",contador, " vez/es")
+
+
+11. Eliminar duplicados
+Dada una lista de números, elimina todos los elementos duplicados y muestra la lista con solo valores únicos.
+
+
+
+nombres = [ 1,2,3,4,5,1,2,3,4,5]
+print(set(nombres))
+
+
+
+12. Máximo y mínimo
+Escribe una función que tome una lista de números y devuelva el valor máximo y mínimo de la lista.
+
+nombres = [5,4,3,2,1]
+nombres.sort()
+
+print(nombres[0], nombres[len(nombres)-1])
+
+
+13. Filtrar números pares
+Dada una lista de números, genera una nueva lista que contenga solo los números pares.
+
+nombres = [5,4,3,2,1]
+lista = []
+for i in nombres:
+    if i % 2 == 0:
+        lista += str(i)
+print(lista)
+
+
+14. Revertir una lista
+Escribe una función que tome una lista y devuelva una nueva lista con los elementos en orden inverso, sin utilizar el método .reverse().
+
+
+nombres = ["hola", "tal"]
+for i in range(len(nombres),0,-1):
+    print(nombres[i-1])
+
+15. Concatenar listas
+Dadas dos listas de números, crea una función que devuelva una tercera lista que contenga los elementos de ambas listas intercalados.
+
+
+nombres = ["hola", "tal"]
+nombres2 = ["como", "andamos"]
+nombres3 = nombres + nombres2
+print(nombres3)
+
+
+16. Encuentra elementos comunes
+Escribe un programa que tome dos listas y devuelva una nueva lista con los elementos que son comunes en ambas.
+
+
+cadena = [1,2,3,4,5,6]
+cadena1 = [3,4,6,5,7,2]
+res = []
+for item in cadena:
+	if item in cadena1:
+	res.append(item)
+print(res)
+
+
+
+
+
+
+
