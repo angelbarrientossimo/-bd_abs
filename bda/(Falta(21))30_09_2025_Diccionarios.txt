@@ -1,0 +1,466 @@
+Definir una variable global en Python, es decir que la función se actualice fuera de la función(es decir tengo una función con una variable definida fuera y quiero que se actualize dentro)
+
+Poder encadenar Texto y variable con la f ejemplo
+id : f"hola{variable}"
+
+
+1.- Buscar valor en un diccionario
+Crea un diccionario de frutas y precios. Permite al usuario ingresar el nombre de una fruta y muestra su precio si existe en el diccionario, o un mensaje de que no está disponible en caso contrario.
+
+frutas = {
+    "Sandia": 12,
+    "Manzana": 11,
+    "Pera": 10
+}
+
+busqueda = input("Dame el nombre de una fruta: ")
+
+if busqueda in frutas:
+    print(frutas[busqueda])
+else:
+    print("Lo siento, esa fruta no está disponible.")
+
+
+2.- Contar elementos en un diccionario
+Suponiendo un diccionario con al siguiente estructura, crea un programa que calcule cuántas categorías hay, cuántos productos tiene cada categoría y cuántos productos hay en total.
+
+
+productos = {
+    "Electrónica": ["Smartphone", "Laptop", "Tablet", "Auriculares", "Smartwatch"],
+    "Hogar": ["Aspiradora", "Microondas", "Lámpara", "Sofá", "Cafetera"],
+    "Ropa": ["Camisa", "Pantalones", "Chaqueta", "Zapatos", "Bufanda"],
+    "Deportes": ["Pelota de fútbol", "Raqueta de tenis", "Bicicleta", "Pesas", "Cuerda de saltar"],
+    "Juguetes": ["Muñeca", "Bloques de construcción", "Peluche", "Rompecabezas", "Coche de juguete"],
+}
+contador_seccion = 0
+contador_productos = 0
+for iterable in productos:
+    print("Elementos en la seccion de", productos[iterable]," ",len(productos[iterable]))
+    contador_seccion += 1
+    for iterable_productos in productos[iterable]:
+        contador_productos += 1
+print("Numero de secciones",contador_seccion,"Numero de productos en total", contador_productos)
+
+
+
+
+
+
+3.- Contador de frecuencias de palabras
+Escribe un programa que tome una frase y use un diccionario para contar la frecuencia de cada palabra.
+
+def contar_frecuencia(frase):
+    palabras = frase.lower().split()
+    frecuencia = {}
+    for palabra in palabras:
+        palabra = palabra.strip(".,;:!?¡¿()[]{}\"'")
+        if palabra in frecuencia:
+            frecuencia[palabra] += 1
+        else:
+            frecuencia[palabra] = 1
+    
+    return frecuencia
+
+
+frase = "¡Hola mundo! hola ¿cómo estás mundo?"
+resultado = contar_frecuencia(frase)
+print(resultado)
+
+
+4 - hacer de nuevo pk esta copiado y seguro que no va
+asignaturas = {
+    "Matemáticas": ["Ana", "Carlos", "Luis", "María", "Jorge"],
+    "Física": ["Elena", "Luis", "Juan", "Sofía"],
+    "Programación": ["Ana", "Carlos", "Sofía", "Jorge", "Pedro"],
+    "Historia": ["María", "Juan", "Elena", "Ana"],
+    "Inglés": ["Carlos", "Sofía", "Jorge", "María"],
+}
+
+op = int(input("Dame un valor Numerico "))
+
+while op > 3 or op < 0:
+    op = int(input("Dame un valor Numerico "))
+
+match op:
+    case 1:
+        for i in asignaturas:
+            print(i,asignaturas[i])
+    case 2:
+        nombre_asig = str(input("Dime la asignatura "))
+        while nombre_asig not in asignaturas:
+            nombre_asig = str(input("Dime la asignatura "))
+        nombre_alumno = str(input("Dame el nombre del alumno "))
+        asignaturas[nombre_asig].append(nombre_alumno)
+        print(asignaturas[nombre_asig])
+    case 3:
+        nombre_asig = str(input("Dime la asignatura "))
+        while nombre_asig not in asignaturas:
+            nombre_asig = str(input("Dime la asignatura "))
+        nombre_alumno = str(input("Dame el nombre del alumno "))
+        for i in asignaturas[nombre_asig]:
+            if nombre_alumno in i:
+                asignaturas[nombre_asig].remove(i)
+        print(asignaturas)
+
+
+
+
+5.- Diccionario invertido
+Escribe una función que tome un diccionario y devuelva otro con las claves y valores intercambiados (lo que antes eran valores ahora son claves, y viceversa).
+
+asignaturas = {
+    "Matemáticas": "ANA",
+    "Física": "ELENA",
+    "Programación": "CARLOS",
+    "Historia": "MARIA",
+    "Inglés": "SOFIA",
+}
+out = {}
+for key, value in asignaturas.items():
+    out[value] = key
+print(out)
+
+6.- Combinar dos diccionarios
+Escribe un programa que tome dos diccionarios de productos y precios, y combine los productos comunes sumando sus precios, sin duplicar los elementos únicos.
+
+productos_electronica = {
+    "Smartphone": 699.99,
+    "Laptop": 1199.50,
+    "Auriculares Bluetooth": 89.90,
+    "Pan": 1.0,
+    "Tablet": 349.00
+    
+}
+
+productos_supermercado = {
+    "Pan": 1.20,
+    "Leche": 0.95,
+    "Huevos": 2.50,
+    "Café molido": 3.75,
+    "Aceite de oliva (1L)": 5.60
+}
+
+for productos, precio in productos_electronica.items():
+    if productos in productos_supermercado: 
+        productos_electronica[productos] += productos_supermercado.get(productos)
+print(productos_electronica)
+
+
+
+7.- Filtrar claves y valores
+Dado un diccionario de empleados y salarios, filtra e imprime solo los empleados con un salario mayor a un umbral definido.
+
+
+empleados = {
+    "Ana Gómez": 32000,
+    "Luis Martínez": 45000,
+    "Carla Ruiz": 38000,
+    "Jorge López": 41000,
+    "Sofía Torres": 47000
+}
+
+for clave, valor in empleados.items():
+    if valor <= 40000:
+        pass
+    else:
+        print(clave,valor)
+
+
+
+8.- Anidación de diccionarios
+Partiendo de un diccionario donde las claves son nombres de departamentos y los valores, diccionarios de empleados y sus puestos, tal como se ve en el código de ejemplo, crea un programa que permita realizar las siguientes funciones:
+
+Mostrar el listado de todos los empleados de un departamento
+Añadir un empleado a un departamento
+Eliminar un empleado de un departamento
+
+
+op = int(input("Dame un valor numerico para realizar opciones "))
+while op < 1 or op > 3:
+    op = int(input("Dame un valor numerico para realizar opciones "))
+
+
+match op:
+    case 1:
+        for nombre_depa in departamentos:
+            print(nombre_depa, ": ",departamentos.get(nombre_depa), "\n")
+    case 2:
+        diccionario_aux = {}
+        depar_exis = str(input("Dime el nombre de un departamento "))
+        while depar_exis not in  ("Recursos Humanos","Tecnología","Marketing", "Finanzas"):
+            depar_exis = str(input("Dime el nombre de un departamento "))
+        nombre_empleado = str(input("Dame el nombre del empleado "))
+        ocupacion = str(input("Dame el puesto que ocupa "))
+        diccionario_aux = {nombre_empleado: ocupacion}
+        for nombre_depar in departamentos:
+            if nombre_depar == depar_exis:
+                departamentos[nombre_depar].update(diccionario_aux)
+                print(departamentos[nombre_depar])
+    case 3:
+        depar_exis = str(input("Dime el nombre de un departamento "))
+        while depar_exis not in  ("Recursos Humanos","Tecnología","Marketing", "Finanzas"):
+            depar_exis = str(input("Dime el nombre de un departamento "))
+        nombre_empleado = str(input("Dame el nombre del empleado "))
+        if nombre_empleado in departamentos[depar_exis]:
+            departamentos[depar_exis].pop(nombre_empleado)
+            print(departamentos[depar_exis])
+
+
+9.- Transformación de datos
+Dado un diccionario con claves como nombres de estudiantes y valores como una lista de calificaciones, haz un programa que:
+
+Cree un nuevo diccionario que contenga el promedio de calificaciones para cada estudiante
+Crea otro diccionario que contengan la nota promedio en cada asignatura
+
+estudiantes = {
+    "Ana": {"Matemáticas": 8.5, "Física": 9.0, "Programación": 7.8},
+    "Carlos": {"Matemáticas": 9.2, "Física": 8.8, "Programación": 9.4},
+    "Luis": {"Matemáticas": 7.6, "Física": 8.0, "Programación": 8.5},
+    "María": {"Matemáticas": 9.5, "Física": 10.0, "Programación": 9.8},
+    "Jorge": {"Matemáticas": 8.8, "Física": 8.4, "Programación": 7.9},
+    "Sofía": {"Matemáticas": 9.1, "Física": 8.9, "Programación": 9.3}
+}
+diccionario_aux = {}
+
+for nombre in estudiantes:
+    notas = 0
+    for contenido in estudiantes[nombre]:
+         notas += estudiantes[nombre][contenido]/ len(estudiantes[nombre])
+    diccionario_aux.update({nombre: notas})
+print(diccionario_aux)
+notas_1= []
+
+for materias in estudiantes.values():
+    notas_1.extend(materias.values())
+print(notas_1)
+
+contador = 0
+asig1 = 0
+asig2 = 0
+asig3 = 0
+for i in range(1,len(notas_1)+1):
+    if contador == 0:
+        asig1 += notas_1[i-1] /(len(notas_1)/3)
+        contador +=1
+    elif contador == 1:
+        asig2 += notas_1[i-1]/(len(notas_1)/3)
+        contador +=1
+    else:
+        asig3 += notas_1[i-1]/(len(notas_1)/3)
+        contador = 0
+print(asig1,asig2,asig3)
+
+
+
+10.- Diccionario de cuadrados
+Crea una función que devuelva un diccionario que tenga como claves los números del 1 a n (siendo n un valor pasado como parámetro a la función) y como valores sus cuadrados.
+
+
+iterable = int(input("Dame un valor para iterar"))
+diccionario = {}
+diccionario_aux = {}
+
+for i in range(1,iterable +1):
+    diccionario_aux = {i:i**2}
+    diccionario.update(diccionario_aux)
+print(diccionario)
+
+
+
+11.- Contar caracteres
+Escribe un programa que tome una cadena y use un diccionario para contar cuántas veces aparece cada carácter.
+
+
+str = "Hola que tal"
+res = {}
+for char in str.lower():
+    if char in res:
+        res[char] += 1
+    else:
+        res[char] = 1
+print(res)
+
+
+
+12.- Fusionar listas en un diccionario
+Dadas dos listas del mismo tamaño, una de claves y otra de valores, crea un diccionario combinándolas.
+
+Ejemplo: claves = ["a","b","c"], valores = [1,2,3] → {"a":1, "b":2, "c":3}
+
+claves = ["a","b","c"]
+valores = [1,2,3]
+dic = {i:j for i,j in zip(claves,valores)}
+print(dic)
+
+
+13.- Eliminar claves específicas
+Dado un diccionario de estudiantes y sus notas, elimina todas las entradas con una nota inferior a 5.
+
+
+
+estudiantes_notas = {
+    "Ana": [8.5, 9.0, 7.5],
+    "Luis": [6.0, 7.0, 6.5],
+    "María": [9.5, 9.0, 10.0],
+    "Pedro": [5.5, 6.0, 6.5],
+    "Sofía": [10.0, 9.5, 4.9],
+}
+
+nombres_aux = []
+
+for nombre in estudiantes_notas:
+    for nota in estudiantes_notas[nombre]:
+        if nota < 5.0:
+            nombres_aux.append(nombre)
+            break  
+
+for nombre in nombres_aux:
+    del estudiantes_notas[nombre]
+
+print(estudiantes_notas)
+
+
+14.- Palabra más frecuente
+Crea un programa que lea un texto y devuelva la palabra que más veces aparece usando un diccionario de frecuencias.
+
+
+cadena =("La vida es un camino lleno de aprendizajes. Cada día trae una nueva oportunidad para crecer, para descubrir algo diferente y para mejorar como persona. No importa cuántas veces se falle, lo importante es seguir adelante con fuerza y determinación. La constancia y la paciencia son claves para alcanzar cualquier meta. Con esfuerzo, todo es posible.")
+
+dict={}
+lista = []
+for caracter in cadena.lower():
+    if caracter in dict:
+        dict[caracter] += 1
+    else:
+        dict[caracter] = 1
+for numeros in dict.values():
+    lista.append(numeros)
+lista.sort()
+lista.reverse()
+print(lista[0])
+print(dict)
+for key, value in dict.items():
+    if value == lista[0]:
+        print("Valor máximo", key, value)
+
+16.- Valores únicos
+Dado un diccionario, crea una función que devuelva una lista con todos los valores únicos que contiene (sin repetidos).
+
+cadena =("La vida es un camino lleno de aprendizajes. Cada día trae una nueva oportunidad para crecer, para descubrir algo diferente y para mejorar como persona. No importa cuántas veces se falle, lo importante es seguir adelante con fuerza y determinación. La constancia y la paciencia son claves para alcanzar cualquier meta. Con esfuerzo, todo es posible.")
+dict_aux = {}
+dict = {}
+for caracter in cadena:
+    if caracter in dict:
+        dict[caracter] += 1
+    else:
+        dict[caracter] = 1
+
+for keys, values in dict.items():
+    if values == 1:
+        dict_aux[keys] = caracter
+    else:
+        pass
+print(dict_aux)
+
+17.- Diccionario de listas invertido
+Dado un diccionario donde los valores son listas de elementos, crea uno nuevo donde cada elemento de las listas sea una clave y sus valores sean las claves originales donde aparecía.
+
+mi_diccionario = {
+    'a': [1, 2, 3],
+    'b': [2, 4],
+    'c': [1, 4, 5]
+}
+
+dict_aux = {}
+
+for clave, valores in mi_diccionario.items():
+    for elemento in valores:
+        if elemento not in dict_aux:
+            dict_aux[elemento] = []
+            dict_aux[elemento].append(clave)
+print(dict_aux)
+
+
+18.- Diccionario de números pares e impares
+Escribe un programa que genere un diccionario con dos claves: "pares" y "impares". Cada una tendrá como valor una lista con los números pares o impares del 1 al 20.
+
+par = []
+impar = []
+for num in range(21):
+    if num % 2 == 0:
+        par.append(num)
+    else:
+        impar.append(num)
+print(par,impar)
+
+dpar = {"PAR":par}
+dimpar = {"IMPAR":impar}
+print(dpar, dimpar)
+
+
+19.- Sumar valores
+Dado un diccionario con productos y precios, calcula el precio total de todos los productos.
+
+
+productos_precios = {
+    'Manzana': 1.50,
+    'Plátano': 0.80,
+    'Leche': 1.20,
+    'Pan': 1.00,
+    'Huevos': 2.50,
+    'Queso': 3.00,
+    'Arroz': 2.10,
+    'Tomate': 1.80,
+    'Aceite de oliva': 4.50,
+    'Pollo': 5.00
+}
+print(sum(productos_precios.values()))
+
+
+
+20.- Diccionario de longitudes
+Escribe un programa que tome una lista de palabras y cree un diccionario donde cada palabra sea una clave y su valor la longitud de la palabra.
+
+lista = [
+    "sol", "cielo", "luna", "río", "montaña", 
+    "libro", "computadora", "café", "flor", "viento", 
+    "ciudad", "fútbol", "música", "pintura", "felicidad",
+    "amor", "ciencia", "universo", "estrella", "sabiduría",
+    "paz", "familia", "amigo", "aventura", "luz"
+]
+dict = {}
+for palabra in lista:
+    dict[palabra] = len(palabra)
+print(dict)
+
+
+
+
+
+
+21.- Invertir mayúsculas y minúsculas en claves
+Dado un diccionario con claves tipo string, crea otro donde las claves estén con las letras invertidas (mayúsculas ↔ minúsculas).
+
+
+diccionario = {
+    "nombre": "Carlos",
+    "edAd": 28,
+    "ciUdad": "Madrid",
+    "prOfesión": "Ingeniero",
+    "hobbies": ["leer", "viajar", "correr"],
+    "activo": True,
+    "salario": 3500.50,
+    "fecha_registro": "2023-10-05"
+}
+dict_aux = {}
+for keys, values in diccionario.items():
+    cadena_aux = ""
+    for caracter in keys:
+        if caracter == caracter.lower():
+            caracter = caracter.upper()
+            cadena_aux += caracter
+        else:
+            caracter = caracter.lower()
+            cadena_aux += caracter
+    dict_aux[cadena_aux] = values
+print(dict_aux)

@@ -1,16 +1,22 @@
-productos = {
-    "Electrónica": ["Smartphone", "Laptop", "Tablet", "Auriculares", "Smartwatch"],
-    "Hogar": ["Aspiradora", "Microondas", "Lámpara", "Sofá", "Cafetera"],
-    "Ropa": ["Camisa", "Pantalones", "Chaqueta", "Zapatos", "Bufanda"],
-    "Deportes": ["Pelota de fútbol", "Raqueta de tenis", "Bicicleta", "Pesas", "Cuerda de saltar"],
-    "Juguetes": ["Muñeca", "Bloques de construcción", "Peluche", "Rompecabezas", "Coche de juguete"],
+diccionario = {
+    "nombre": "Carlos",
+    "edAd": 28,
+    "ciUdad": "Madrid",
+    "prOfesión": "Ingeniero",
+    "hobbies": ["leer", "viajar", "correr"],
+    "activo": True,
+    "salario": 3500.50,
+    "fecha_registro": "2023-10-05"
 }
-contador_seccion = 0
-contador_productos = 0
-for iterable in productos:
-    print("Elementos en la seccion de", productos[iterable]," ",len(productos[iterable]))
-    contador_seccion += 1
-    for iterable_productos in productos[iterable]:
-        contador_productos += 1
-print("Numero de secciones",contador_seccion,"Numero de productos en total", contador_productos)
-
+dict_aux = {}
+for keys, values in diccionario.items():
+    cadena_aux = ""
+    for caracter in keys:
+        if caracter == caracter.lower():
+            caracter = caracter.upper()
+            cadena_aux += caracter
+        else:
+            caracter = caracter.lower()
+            cadena_aux += caracter
+    dict_aux[cadena_aux] = values
+print(dict_aux)

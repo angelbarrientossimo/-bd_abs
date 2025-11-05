@@ -1,0 +1,44 @@
+conectarse a un contenedor Docker exec si es iterativa -it redis-server redis-cli
+Docker ps nombra a los contenedores
+
+ordendes que se pueden ejecutar en Docker
+
+ping (comprueba que hay conexión con la base de datos) si devuelve pong es que hay conexion
+
+info(da información sobre la base de datos)
+
+CONFIG GET DEVUELVE LO QUE SE PIDA
+CONFIG GET maxclients
+
+server-thres
+mazclients
+timeout
+tcp-keepalive
+maxmemory
+maxmemory-policy
+maxmemory-samples
+hash-max-siplist-entries
+bind
+port
+unixsocket
+logfile
+
+Redis trabaja con índices la default es la 0 se puede cambiar con el select
+
+FLUSHDB
+FLUSHALL
+client list
+client kill (id)
+
+
+2 forma de conectarse Podemos tener grafica en la pagina redis insight
+
+3 forma con Python con cuadernos de jupiter
+
+
+
+
+
+
+
+
