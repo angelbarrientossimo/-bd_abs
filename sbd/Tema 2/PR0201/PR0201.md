@@ -1,0 +1,114 @@
+# PR0201: Cadenas en Redis
+### ------------- ESPECIALIZACIÓN EN INTELIGENCIA ARTIFICIAL Y BIG DATA -------------
+---------------------------------------------------------------------------------
+
+Módulo:                     SISTEMAS DE BIG DATA
+Profesor:                   Víctor J. González
+Unidad de Trabajo:          UT02. Almacenamiento de datos
+Práctica:                   PR0201: Cadenas en Redis
+Resultados de aprendizaje:  RA3
+
+
+## 1. Trabajo con Redis CLI
+
+
+**0-** Conéctate al CLI de Redis y realiza las siguientes operaciones paso a paso:
+
+Para conectarnos al CLI realizamos la siguiente operación
+
+```bash
+docker exec -it redis-server redis-cli
+```
+![Captura0](./Captura0.png)
+
+**1-** Crea una clave usuario:nombre con tu nombre.
+
+```bash
+SET usuario:nombre Angel
+```
+
+![Captura1](./Captura1.png)
+
+**2-** Crea una clave usuario:apellido con tu apellido
+
+```bash
+SET usuario:apellido Barrientos
+```
+
+![Captura2](./Captura2.png)
+
+**3-** Recupera el valor de ambas claves con GET.
+
+```bash
+Get nombre
+Get apellido
+```
+![Captura3](./Captura3.png)
+
+**4-** Almacena en usuario:email un correo ficticio y recupéralo
+
+```bash
+SET usuario:email angelbarrientossimo@gmail.com
+get email
+```
+![Captura4](./Captura4.png)
+
+**5-** Cambia el valor de usuario:nombre para que aparezca en mayúsculas
+
+```bash
+SET usuario:nombre ANGEL
+GET nombre
+```
+![Captura5](./Captura5.png)
+
+**6-** Crea la clave contador:visitas con valor 0
+
+```bash
+SET contador:visitas 0
+GET contador
+```
+![Captura6](./Captura6.png)
+
+**7-** Incrementa en 1 el valor de contador:visitas tres veces
+
+```bash
+INCR contador
+INCR contador
+INCR contador
+```
+![Captura7](./Captura7.png)
+
+**8-** Decrementa en 1 el valor de contador:visitas.
+
+```bash
+DECR contador
+```
+![Captura8](./Captura8.png)
+
+**9-** Guarda en la clave mensaje el texto "Bienvenido a Redis".
+
+```bash
+SET mensaje "Bienvenido a Redis"
+```
+![Captura9](./Captura9.png)
+
+**10-** Establece un tiempo de expiración de 60 segundos para la clave mensaje.
+
+```bash
+SET mensaje "Bienvenido a Redis" ex 60
+```
+![Captura10](./Captura10.png)
+
+**11-** Elimina la clave usuario:apellido.
+
+```bash
+DEL apellido
+```
+![Captura11](./Captura11.png)
+
+**12-**	Elimina el resto de claves que hayas creado
+
+```bash
+Flushall
+```
+![Captura12](./Captura12.png)

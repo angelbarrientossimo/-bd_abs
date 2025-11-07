@@ -67,7 +67,7 @@ resultado = contar_frecuencia(frase)
 print(resultado)
 
 
-4 - hacer de nuevo pk esta copiado y seguro que no va
+4 - 
 asignaturas = {
     "Matemáticas": ["Ana", "Carlos", "Luis", "María", "Jorge"],
     "Física": ["Elena", "Luis", "Juan", "Sofía"],
