@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>enunciado_examen_ev1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="big-data-aplicado---examen-1%C2%AA-evaluaci%C3%B3n">BIG DATA APLICADO - Examen 1ª Evaluación</h1>
+<p><strong>Instrucciones generales</strong></p>
+<ol>
+<li>Todas las sentencias deben ejecutarse desde la línea de comandos en las celdas que hay después del enunciado. No debes realizar ninguna tarea desde fuera de Jupyter.</li>
+<li>Puedes <strong>añadir</strong> todas las celdas que necesites siempre y cuando estén antes del siguiente enunciado.</li>
+<li>Todas las celdas <strong>deben estar ejecutadas</strong> y debe visualizarse el resultado de salida.</li>
+<li><strong>No es necesario documentar</strong> las respuestas, simplemente debes hacer lo que se pide en el enunciado.</li>
+<li>Si un comando falla, explica la causa del error y cómo lo has solucionado.</li>
+<li>Debes entregar tanto el <strong>notebook</strong> (fichero <code>.ipynb</code>) como el mismo fichero convertido a <strong>PDF</strong> (es muy probable que si intentas convertirlo en el propio contenedor te falle por no tener instalado <code>pandoc</code>, si es así descargalo en formato <code>.md</code> o <code>html</code> y conviértelo en tu máquina física).</li>
+</ol>
+<hr>
+<p><strong>NOMBRE</strong>:</p>
+<hr>
+<h2 id="ejercicio-2-uso-de-hdfs-55-puntos-de-ra1">Ejercicio 2: Uso de HDFS (5.5 puntos de RA1)</h2>
+<h3 id="gesti%C3%B3n-b%C3%A1sica-y-estructura-15-puntos">Gestión básica y estructura (1.5 puntos)</h3>
+<p><strong>Preparación del entorno</strong></p>
+<ul>
+<li>Crea un archivo local en tu máquina llamado <code>datos_alumno.txt</code>.</li>
+<li>El contenido del archivo debe ser tu nombre completo y tu DNI, repetido en 10 líneas.</li>
+</ul>
+<pre class="hljs"><code><div>!touch datos_alumno.txt
+</div></code></pre>
+<p><strong>Creación de directorios en HDFS</strong></p>
+<ul>
+<li>Crea la siguiente estructura de directorios dentro de HDFS:
+<ul>
+<li><code>/examen/{tus_iniciales}/entradas</code></li>
+<li><code>/examen/{tus_iniciales}/salidas</code></li>
+<li><code>/examen/{tus_iniciales}/logs</code></li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div>!hdfs dfs -mkdir -p /examen/abs/entradas
+!hdfs dfs -mkdir  -p /examen/abs/salidas
+!hdfs dfs -mkdir - p /examen/abs/logs
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs/
+</div></code></pre>
+<pre><code>Found 3 items
+drwxr-xr-x   - root supergroup          0 2025-12-04 08:55 /examen/abs/entradas
+drwxr-xr-x   - root supergroup          0 2025-12-04 08:55 /examen/abs/logs
+drwxr-xr-x   - root supergroup          0 2025-12-04 08:55 /examen/abs/salidas
+</code></pre>
+<p><strong>Ingesta de datos</strong></p>
+<ul>
+<li>Sube el archivo local <code>datos_alumno.txt</code> al directorio HDFS <code>/examen/{tus_iniciales}/entradas</code></li>
+<li>Verifica que el archivo se ha subido correctamente listando el contenido del directorio</li>
+<li>Verifica que el archivo se ha subido correctamente listando el contenido del archivo <code>datos_alumno.txt</code></li>
+</ul>
+<pre class="hljs"><code><div>!ls /media/notebooks
+</div></code></pre>
+<pre><code>PR0401.ipynb		    mapper_ejercicio3.py
+PR0402.ipynb		    mapper_ejercicio4.py
+Prueba2.ipynb		    mapper_ejercicio_practicar.py
+Untitled.ipynb		    mapper_ejercicio_practicar2.py
+Untitled1.ipynb		    mapper_indice.py
+Untitled2.ipynb		    mapperdia_antes.py
+Untitled3.ipynb		    mapperdia_antes1.py
+Untitled4.ipynb		    practicar_dia_antes_examen.ipynb
+city_temperature.csv	    practicar_examen_ampreduce.ipynb
+clean_file.csv		    quijote.txt
+dataset_31_credit-g.csv     quijote.txt.1
+datos_alumno.txt	    quijote.txt.2
+doc1.txt		    reducerQuijote.py
+doc2.txt		    reducerQuijote2.py
+doc3.txt		    reducer_ejercicio.py
+enunciado_examen_ev1.ipynb  reducer_ejercicio2.py
+mapper.py		    reducer_ejercicio3.py
+mapperQuijote.py	    reducer_ejercicio4.py
+mapperQuijote2.py	    reducer_ejercicio_practicar.py
+mapperQuijote3.py	    reducer_ejercicio_practicar2.py
+mapperQuijote3_2.py	    reducer_indice.py
+mapper_ejercicio.py	    reducerdia_antes.py
+mapper_ejercicio2.py	    reducerdia_antes1.py
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -put /media/notebooks/datos_alumno.txt /examen/abs/entradas
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs/entradas
+</div></code></pre>
+<pre><code>Found 1 items
+-rw-r--r--   3 root supergroup        339 2025-12-04 09:00 /examen/abs/entradas/datos_alumno.txt
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -cat /examen/abs/entradas/datos_alumno.txt
+</div></code></pre>
+<pre><code>Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+</code></pre>
+<h3 id="manipulaci%C3%B3n-y-exploraci%C3%B3n-15-puntos">Manipulación y exploración (1.5 puntos)</h3>
+<p><strong>Duplicación y renombrado</strong></p>
+<ul>
+<li>Realiza una copia del archivo que acabas de subir (<code>datos_alumno.txt</code>) dentro de HDFS y colócala en la carpeta <code>/examen/{tus_iniciales}/salidas</code>.</li>
+<li>Renombra esta copia en HDFS para que se llame <code>backup_datos.txt</code>.</li>
+</ul>
+<pre class="hljs"><code><div>!hdfs dfs -cp /examen/abs/entradas/datos_alumno.txt /examen/abs/salidas
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs/salidas
+</div></code></pre>
+<pre><code>Found 1 items
+-rw-r--r--   3 root supergroup        339 2025-12-04 09:02 /examen/abs/salidas/datos_alumno.txt
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -mv /examen/abs/salidas/datos_alumno.txt /examen/abs/salidas/backup_datos.txt
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs/salidas/
+</div></code></pre>
+<pre><code>Found 1 items
+-rw-r--r--   3 root supergroup        339 2025-12-04 09:02 /examen/abs/salidas/backup_datos.txt
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -cat /examen/abs/salidas/backup_datos.txt
+</div></code></pre>
+<pre><code>Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+Ángel Barrientos Simó 20533741P
+</code></pre>
+<p><strong>Inspección de contenido</strong></p>
+<ul>
+<li>Muestra por consola las últimas 3 líneas del archivo <code>backup_datos.txt</code> que reside en HDFS</li>
+<li>Muestra el tamaño total (en formato legible para los humanos) del directorio <code>/examen/{tus_iniciales}</code></li>
+</ul>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs |wc -c
+print(<span class="hljs-string">"Bytes"</span>)
+</div></code></pre>
+<pre><code>249
+Bytes
+</code></pre>
+<p><strong>Movimiento de datos</strong></p>
+<ul>
+<li>Mueve el archivo original <code>/examen/{tus_iniciales}/entradas/datos_alumno.txt</code> a la carpeta <code>/examen/{tus_iniciales}/logs</code>.</li>
+</ul>
+<pre class="hljs"><code><div>!hdfs dfs -mv /examen/abs/entradas/datos_alumno.txt /examen/abs/logs
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs/logs
+</div></code></pre>
+<pre><code>Found 1 items
+-rw-r--r--   3 root supergroup        339 2025-12-04 09:00 /examen/abs/logs/datos_alumno.txt
+</code></pre>
+<h3 id="administraci%C3%B3n-avanzada-25-puntos">Administración avanzada (2.5 puntos)</h3>
+<p><strong>Factor de replicación</strong></p>
+<ul>
+<li>Cambia el factor de replicación del archivo <code>/examen/{tus_iniciales}/salidas/backup_datos.txt</code> a <strong>1</strong>.</li>
+<li>Comprueba que el cambio se ha efectuado correctamente utilizando el comando <code>fsck</code> o <code>ls</code> con los parámetros adecuados.</li>
+</ul>
+<pre class="hljs"><code><div>
+</div></code></pre>
+<p><strong>Permisos</strong></p>
+<ul>
+<li>Cambia los permisos del directorio <code>/examen/{tus_iniciales}/logs</code> para que solo el propietario tenga permisos de lectura, escritura y ejecución. El resto de los usuarios no debe tener acceso.</li>
+</ul>
+<pre class="hljs"><code><div>!hdfs dfs -chmod <span class="hljs-number">700</span> /examen/abs/logs
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs
+</div></code></pre>
+<pre><code>Found 3 items
+drwxr-xr-x   - root supergroup          0 2025-12-04 09:05 /examen/abs/entradas
+drwx------   - root supergroup          0 2025-12-04 09:05 /examen/abs/logs
+drwxr-xr-x   - root supergroup          0 2025-12-04 09:02 /examen/abs/salidas
+</code></pre>
+<p><strong>Gestión de cuotas</strong></p>
+<ul>
+<li>Asigna una cuota de espacio al directorio <code>/examen/{tus_iniciales}/entradas</code> limitada a 1 MB.</li>
+<li>Intenta subir un archivo (o varios) que superen en total 1 MB a ese directorio para demostrar que la cuota funciona.</li>
+<li>Elimina la cuota de espacio asignada al directorio <code>/examen/{tus_iniciales}/entradas</code>.</li>
+</ul>
+<pre class="hljs"><code><div>!hdfs dfsadmin -setSpaceQuota <span class="hljs-number">1</span>M /examen/abs/entradas
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -count -q /examen/abs/entradas
+</div></code></pre>
+<pre><code>        none             inf         1048576         1048576            1            0                  0 /examen/abs/entradas
+</code></pre>
+<p>Creamos un archivo grande para ver s funciona la cuota de espacio</p>
+<pre class="hljs"><code><div>!dd <span class="hljs-keyword">if</span>=/dev/zero of=/tmp/archivo10mb.dat bs=<span class="hljs-number">1</span>M count=<span class="hljs-number">10</span>
+!hdfs dfs -put /tmp/archivo10mb.dat /examen/abs/entradas
+</div></code></pre>
+<pre><code>10+0 records in
+10+0 records out
+10485760 bytes (10 MB, 10 MiB) copied, 0.00340459 s, 3.1 GB/s
+put: The DiskSpace quota of /examen/abs/entradas is exceeded: quota = 1048576 B = 1 MB but diskspace consumed = 402653184 B = 384 MB
+</code></pre>
+<p><img src="3d386fa9-5f6a-4d08-86aa-5b24f99f30e2.png" alt="image.png"></p>
+<p><strong>Snapshots y recuperación</strong></p>
+<ul>
+<li>Habilita la funcionalidad de snapshots en el directorio <code>/examen/{tus_iniciales}/salidas</code>.</li>
+<li>Crea un snapshot del directorio <code>/examen/{tus_iniciales}/salidas</code> llamado <code>snap_seguridad_v1</code>.</li>
+<li>Simula un error humano borrando el archivo <code>/examen/{tus_iniciales}/salidas/backup_datos.txt</code>.</li>
+<li>Recupera el archivo borrado restaurándolo desde el snapshot creado anteriormente.</li>
+<li>Comprueba que el archivo vuelve a aparecer en su ubicación original.</li>
+</ul>
+<pre class="hljs"><code><div>!hdfs dfsadmin -help |grep snap*
+</div></code></pre>
+<pre><code>	[-allowSnapshot &lt;snapshotDir&gt;]
+	[-disallowSnapshot &lt;snapshotDir&gt;]
+	[-provisionSnapshotTrash &lt;snapshotDir&gt; [-all]]
+	measures raw space used by replication, checksums, snapshots
+-allowSnapshot &lt;snapshotDir&gt;:
+	Allow snapshots to be taken on a directory.
+-disallowSnapshot &lt;snapshotDir&gt;:
+	Do not allow snapshots to be taken on a directory any more.
+-provisionSnapshotTrash &lt;snapshotDir&gt; [-all]:
+	Provision trash root in one or all snapshottable directories.	Trash permission is rwxrwxrwt.
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -help |grep snap*
+</div></code></pre>
+<pre><code>	[-createSnapshot &lt;snapshotDir&gt; [&lt;snapshotName&gt;]]
+	[-deleteSnapshot &lt;snapshotDir&gt; &lt;snapshotName&gt;]
+	[-renameSnapshot &lt;snapshotDir&gt; &lt;oldName&gt; &lt;newName&gt;]
+  The -x option excludes snapshots from being calculated. 
+  shows the erasure coding policy.The -s option shows snapshot counts.
+-createSnapshot &lt;snapshotDir&gt; [&lt;snapshotName&gt;] :
+  Create a snapshot on a directory
+-deleteSnapshot &lt;snapshotDir&gt; &lt;snapshotName&gt; :
+  Delete a snapshot from a directory
+  -x  Excludes snapshots from being counted.                                     
+-renameSnapshot &lt;snapshotDir&gt; &lt;oldName&gt; &lt;newName&gt; :
+  Rename a snapshot from oldName to newName
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfsadmin -allowsnapshot /examen/abs/salidas
+</div></code></pre>
+<pre><code>Allowing snapshot on /examen/abs/salidas succeeded
+</code></pre>
+<pre class="hljs"><code><div>print(<span class="hljs-string">"creo otro snapshot"</span>)
+</div></code></pre>
+<pre><code>creo otro snapshot
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -createSnapshot /examen/abs/salidas snap_seguridad_v2
+</div></code></pre>
+<pre><code>Created snapshot /examen/abs/salidas/.snapshot/snap_seguridad_v2
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -rm /examen/abs/salidas/backup_datos.txt
+</div></code></pre>
+<pre><code>Deleted /examen/abs/salidas/backup_datos.txt
+</code></pre>
+<p>Recurperamos el documento con el snapshot mediante el cp</p>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs/salidas/.snapshot
+</div></code></pre>
+<pre><code>Found 2 items
+drwxr-xr-x   - root supergroup          0 2025-12-04 09:16 /examen/abs/salidas/.snapshot/snap_seguridad_v1
+drwxr-xr-x   - root supergroup          0 2025-12-04 09:26 /examen/abs/salidas/.snapshot/snap_seguridad_v2
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -cp /examen/abs/salidas/.snapshot/snap_seguridad_v2 /examen/abs/salidas/
+</div></code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /examen/abs/salidas/snap_seguridad_v2
+</div></code></pre>
+<pre><code>Found 1 items
+-rw-r--r--   3 root supergroup        339 2025-12-04 09:27 /examen/abs/salidas/snap_seguridad_v2/backup_datos.txt
+</code></pre>
+<hr>
+<h2 id="ejercicio-3-computaci%C3%B3n-distribuida-con-mapreduce-10-puntos-de-ra2">Ejercicio 3: Computación distribuida con MapReduce (10 puntos de RA2)</h2>
+<p>Esta parte del examen la vamos a hacer con el <em>dataset</em> que puedes encontrar en <a href="https://www.kaggle.com/datasets/ashpalsingh1525/imdb-movies-dataset">https://www.kaggle.com/datasets/ashpalsingh1525/imdb-movies-dataset</a> y que contiene datos sobre más de 10000 películas de IMDB. El fichero del <em>dataset</em> te lo habrá facilitado el profesor junto con el examen.</p>
+<h2 id="n%C3%BAmero-de-pel%C3%ADculas-por-g%C3%A9nero">Número de películas por género</h2>
+<p><strong>Número de películas de cada género</strong></p>
+<p>Queremos saber <strong>cuántas películas hay en cada uno de los géneros</strong>. Ten en cuenta que muchas películas pertenecen a más de un género. Consejo: antes de empezar observa y familiarízate con la estructura de los datos del fichero.</p>
+<pre class="hljs"><code><div>!hdfs dfs -put /media/notebooks/clean_file.csv /
+</div></code></pre>
+<pre class="hljs"><code><div>%%writefile mapperExamen.py
+<span class="hljs-comment">#!/usr/bin/env python3</span>
+
+<span class="hljs-keyword">import</span> sys
+
+
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> sys.stdin:
+    <span class="hljs-comment">#line = 	names	date_x	score	genre	overview	crew	orig_title	status	orig_lang	budget_x	revenue	country</span>
+    line = line.strip()
+    names,date_x,score,genre,overview,crew,orig_title,status,orig_lang,budget_x,revenue,*country = line.split(<span class="hljs-string">','</span>)
+    <span class="hljs-keyword">for</span> generos <span class="hljs-keyword">in</span> genre.split(<span class="hljs-string">';'</span>):
+        <span class="hljs-keyword">if</span> generos == <span class="hljs-string">"genre"</span>:
+            <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">f"<span class="hljs-subst">{generos}</span>\t1"</span>)
+    
+
+</div></code></pre>
+<pre><code>Overwriting mapperExamen.py
+</code></pre>
+<pre class="hljs"><code><div>%%writefile reducerExamen.py
+<span class="hljs-comment">#!/usr/bin/env python3</span>
+
+<span class="hljs-keyword">import</span> sys
+genero_aux = <span class="hljs-literal">None</span>
+contador = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> sys.stdin:
+    line = line.strip()
+    generos, valor = line.split(<span class="hljs-string">'\t'</span>)
+    <span class="hljs-comment">#line = print(f"{generos}\t1")</span>
+    <span class="hljs-keyword">if</span> generos <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+        genero_aux = generos
+    <span class="hljs-keyword">if</span> genero_aux == generos:
+        contador += <span class="hljs-number">0</span>
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">f"<span class="hljs-subst">{genero_aux}</span>\t<span class="hljs-subst">{contador}</span>"</span>)
+        genero_aux = generos
+        contador = <span class="hljs-number">1</span>
+<span class="hljs-keyword">if</span> generos <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:
+    print(<span class="hljs-string">f"<span class="hljs-subst">{genero_aux}</span>\t<span class="hljs-subst">{contador}</span>"</span>)
+
+
+
+
+</div></code></pre>
+<pre><code>Overwriting reducerExamen.py
+</code></pre>
+<pre class="hljs"><code><div>!head clean_file.csv | python3 mapperExamen.py |sort| python3 reducerExamen.py
+</div></code></pre>
+<pre><code>None	0
+Action	1
+Adventure	1
+Animation	1
+Comedy	1
+Crime	1
+Drama	1
+Family	1
+Fantasy	1
+Science Fiction	1
+Thriller	1
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -rmdir /Examen_1
+</div></code></pre>
+<pre class="hljs"><code><div>!hadoop jar \
+/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming<span class="hljs-number">-3.4</span><span class="hljs-number">.0</span>.jar \
+-file mapperExamen.py \
+-file reducerExamen.py \
+-mapper mapperExamen.py \
+-reducer reducerExamen.py \
+-input /clean_file.csv \
+-output /Examen_1
+</div></code></pre>
+<pre><code>2025-12-04 09:57:13,592 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+packageJobJar: [mapperExamen.py, reducerExamen.py, /tmp/hadoop-unjar8804643804794167055/] [] /tmp/streamjob7877495906199875073.jar tmpDir=null
+2025-12-04 09:57:14,106 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at yarnmanager/172.19.0.6:8032
+2025-12-04 09:57:14,179 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at yarnmanager/172.19.0.6:8032
+2025-12-04 09:57:14,347 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/root/.staging/job_1764837993493_0002
+2025-12-04 09:57:14,611 INFO mapred.FileInputFormat: Total input files to process : 1
+2025-12-04 09:57:14,675 INFO mapreduce.JobSubmitter: number of splits:2
+2025-12-04 09:57:14,757 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1764837993493_0002
+2025-12-04 09:57:14,757 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2025-12-04 09:57:14,880 INFO conf.Configuration: resource-types.xml not found
+2025-12-04 09:57:14,880 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2025-12-04 09:57:14,940 INFO impl.YarnClientImpl: Submitted application application_1764837993493_0002
+2025-12-04 09:57:14,966 INFO mapreduce.Job: The url to track the job: http://yarnmanager:8088/proxy/application_1764837993493_0002/
+2025-12-04 09:57:14,967 INFO mapreduce.Job: Running job: job_1764837993493_0002
+2025-12-04 09:57:19,012 INFO mapreduce.Job: Job job_1764837993493_0002 running in uber mode : false
+2025-12-04 09:57:19,012 INFO mapreduce.Job:  map 0% reduce 0%
+2025-12-04 09:57:22,063 INFO mapreduce.Job: Task Id : attempt_1764837993493_0002_m_000000_0, Status : FAILED
+Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess failed with code 1
+	at org.apache.hadoop.streaming.PipeMapRed.waitOutputThreads(PipeMapRed.java:326)
+	at org.apache.hadoop.streaming.PipeMapRed.mapRedFinished(PipeMapRed.java:539)
+	at org.apache.hadoop.streaming.PipeMapper.close(PipeMapper.java:129)
+	at org.apache.hadoop.mapred.MapRunner.run(MapRunner.java:61)
+	at org.apache.hadoop.streaming.PipeMapRunner.run(PipeMapRunner.java:34)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:466)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:350)
+	at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:178)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:172)
+
+2025-12-04 09:57:22,077 INFO mapreduce.Job: Task Id : attempt_1764837993493_0002_m_000001_0, Status : FAILED
+Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess failed with code 1
+	at org.apache.hadoop.streaming.PipeMapRed.waitOutputThreads(PipeMapRed.java:326)
+	at org.apache.hadoop.streaming.PipeMapRed.mapRedFinished(PipeMapRed.java:539)
+	at org.apache.hadoop.streaming.PipeMapper.close(PipeMapper.java:129)
+	at org.apache.hadoop.mapred.MapRunner.run(MapRunner.java:61)
+	at org.apache.hadoop.streaming.PipeMapRunner.run(PipeMapRunner.java:34)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:466)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:350)
+	at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:178)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:172)
+
+2025-12-04 09:57:24,090 INFO mapreduce.Job: Task Id : attempt_1764837993493_0002_m_000001_1, Status : FAILED
+Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess failed with code 1
+	at org.apache.hadoop.streaming.PipeMapRed.waitOutputThreads(PipeMapRed.java:326)
+	at org.apache.hadoop.streaming.PipeMapRed.mapRedFinished(PipeMapRed.java:539)
+	at org.apache.hadoop.streaming.PipeMapper.close(PipeMapper.java:129)
+	at org.apache.hadoop.mapred.MapRunner.run(MapRunner.java:61)
+	at org.apache.hadoop.streaming.PipeMapRunner.run(PipeMapRunner.java:34)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:466)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:350)
+	at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:178)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:172)
+
+2025-12-04 09:57:24,091 INFO mapreduce.Job: Task Id : attempt_1764837993493_0002_m_000000_1, Status : FAILED
+Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess failed with code 1
+	at org.apache.hadoop.streaming.PipeMapRed.waitOutputThreads(PipeMapRed.java:326)
+	at org.apache.hadoop.streaming.PipeMapRed.mapRedFinished(PipeMapRed.java:539)
+	at org.apache.hadoop.streaming.PipeMapper.close(PipeMapper.java:129)
+	at org.apache.hadoop.mapred.MapRunner.run(MapRunner.java:61)
+	at org.apache.hadoop.streaming.PipeMapRunner.run(PipeMapRunner.java:34)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:466)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:350)
+	at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:178)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:172)
+
+2025-12-04 09:57:27,113 INFO mapreduce.Job: Task Id : attempt_1764837993493_0002_m_000001_2, Status : FAILED
+Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess failed with code 1
+	at org.apache.hadoop.streaming.PipeMapRed.waitOutputThreads(PipeMapRed.java:326)
+	at org.apache.hadoop.streaming.PipeMapRed.mapRedFinished(PipeMapRed.java:539)
+	at org.apache.hadoop.streaming.PipeMapper.close(PipeMapper.java:129)
+	at org.apache.hadoop.mapred.MapRunner.run(MapRunner.java:61)
+	at org.apache.hadoop.streaming.PipeMapRunner.run(PipeMapRunner.java:34)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:466)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:350)
+	at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:178)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:172)
+
+2025-12-04 09:57:27,115 INFO mapreduce.Job: Task Id : attempt_1764837993493_0002_m_000000_2, Status : FAILED
+Error: java.lang.RuntimeException: PipeMapRed.waitOutputThreads(): subprocess failed with code 1
+	at org.apache.hadoop.streaming.PipeMapRed.waitOutputThreads(PipeMapRed.java:326)
+	at org.apache.hadoop.streaming.PipeMapRed.mapRedFinished(PipeMapRed.java:539)
+	at org.apache.hadoop.streaming.PipeMapper.close(PipeMapper.java:129)
+	at org.apache.hadoop.mapred.MapRunner.run(MapRunner.java:61)
+	at org.apache.hadoop.streaming.PipeMapRunner.run(PipeMapRunner.java:34)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:466)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:350)
+	at org.apache.hadoop.mapred.YarnChild$2.run(YarnChild.java:178)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1953)
+	at org.apache.hadoop.mapred.YarnChild.main(YarnChild.java:172)
+
+2025-12-04 09:57:31,141 INFO mapreduce.Job:  map 100% reduce 100%
+2025-12-04 09:57:31,153 INFO mapreduce.Job: Job job_1764837993493_0002 failed with state FAILED due to: Task failed task_1764837993493_0002_m_000001
+Job failed as tasks failed. failedMaps:1 failedReduces:0 killedMaps:0 killedReduces: 0
+
+2025-12-04 09:57:31,202 INFO mapreduce.Job: Counters: 14
+	Job Counters 
+		Failed map tasks=7
+		Killed map tasks=1
+		Killed reduce tasks=1
+		Launched map tasks=8
+		Other local map tasks=6
+		Data-local map tasks=2
+		Total time spent by all maps in occupied slots (ms)=11069
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=11069
+		Total vcore-milliseconds taken by all map tasks=11069
+		Total megabyte-milliseconds taken by all map tasks=11334656
+	Map-Reduce Framework
+		CPU time spent (ms)=0
+		Physical memory (bytes) snapshot=0
+		Virtual memory (bytes) snapshot=0
+2025-12-04 09:57:31,202 ERROR streaming.StreamJob: Job not successful!
+Streaming Command Failed!
+</code></pre>
+<pre class="hljs"><code><div>generos = [<span class="hljs-string">"Animation"</span>,<span class="hljs-string">"Adventure,"</span>,<span class="hljs-string">"Family"</span>,<span class="hljs-string">"Fantasy"</span>,<span class="hljs-string">"Comedy"</span>]
+<span class="hljs-keyword">for</span> genero <span class="hljs-keyword">in</span> generos:
+    print(genero)
+</div></code></pre>
+<pre><code>Animation
+Adventure,
+Family
+Fantasy
+Comedy
+</code></pre>
+<pre class="hljs"><code><div>!hdfs dfs -ls /
+</div></code></pre>
+<pre><code>Found 23 items
+drwxr-xr-x   - root supergroup          0 2025-11-26 16:43 /Quijote
+drwxr-xr-x   - root supergroup          0 2025-11-26 18:18 /Quijote2
+drwxr-xr-x   - root supergroup          0 2025-11-27 18:03 /Quijote3
+drwxr-xr-x   - root supergroup          0 2025-11-27 18:06 /Quijote3_2
+drwxr-xr-x   - root supergroup          0 2025-11-24 11:29 /Temperatura_30_ciudad
+drwxr-xr-x   - root supergroup          0 2025-11-24 11:45 /Temperatura_MinMax
+drwxr-xr-x   - root supergroup          0 2025-11-24 11:18 /Temperatura_maxima
+drwxr-xr-x   - root supergroup          0 2025-11-24 11:19 /Temperatura_media_pais
+drwxr-xr-x   - root supergroup          0 2025-12-03 17:20 /angel
+drwxr-xr-x   - root supergroup          0 2025-12-03 17:52 /backup
+-rw-r--r--   3 root supergroup    6622610 2025-12-04 09:31 /clean_file.csv
+drwxr-xr-x   - root supergroup          0 2025-12-03 19:29 /dia_antes
+drwxr-xr-x   - root supergroup          0 2025-12-04 08:55 /examen
+drwxr-xr-x   - root supergroup          0 2025-11-18 09:05 /indice_invertido
+drwxr-xr-x   - root supergroup          0 2025-12-03 17:04 /practica
+drwxr-xr-x   - root supergroup          0 2025-11-26 15:30 /practica_401
+drwxr-xr-x   - root supergroup          0 2025-12-01 11:45 /practicar_examen
+drwxr-xr-x   - root supergroup          0 2025-12-03 17:51 /proyectos
+drwxr-xr-x   - root supergroup          0 2025-12-03 17:51 /proyectoss
+drwxr-xr-x   - root supergroup          0 2025-12-01 13:20 /prueba_practicar_1
+drwxr-xr-x   - root supergroup          0 2025-11-18 09:22 /salida_indice
+drwxrwx---   - root supergroup          0 2025-11-12 11:33 /tmp
+drwxrwxrwt   - root root                0 2025-12-03 19:04 /yarn
+</code></pre>
+<p><strong>Género más popular</strong></p>
+<p>Utilizando MapReduce, averigua cuál es el género más popular. Debes utilizar un segundo proceso MapReduce para procesar la salida del anterior.</p>
+<pre class="hljs"><code><div>%%writefile mapperExamen2.py
+<span class="hljs-comment">#!/usr/bin/env python3</span>
+
+<span class="hljs-keyword">import</span> sys
+
+
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> sys.stdin:
+    <span class="hljs-comment">#line = 	names	date_x	score	genre	overview	crew	orig_title	status	orig_lang	budget_x	revenue	country</span>
+    line = line.strip()
+    names,date_x,score,genre,overview,crew,orig_title,status,orig_lang,budget_x,revenue,*country = line.split(<span class="hljs-string">','</span>)
+    <span class="hljs-keyword">for</span> generos <span class="hljs-keyword">in</span> genre.split(<span class="hljs-string">';'</span>):
+        <span class="hljs-keyword">if</span> generos == <span class="hljs-string">"genre"</span>:
+            <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">f"<span class="hljs-subst">{generos}</span>\t1"</span>)
+</div></code></pre>
+<pre><code>Writing mapperExamen2.py
+</code></pre>
+<pre class="hljs"><code><div>!head clean_file.csv | python3 mapperExamen2.py <span class="hljs-comment"># |sort| python3 reducerExamen.py</span>
+</div></code></pre>
+<pre><code>Drama	1
+Action	1
+Science Fiction	1
+Adventure	1
+Action	1
+Animation	1
+Adventure	1
+Family	1
+Fantasy	1
+Comedy	1
+Animation	1
+Comedy	1
+Family	1
+Adventure	1
+Fantasy	1
+Action	1
+Thriller	1
+Comedy	1
+Crime	1
+Action	1
+Thriller	1
+Crime	1
+Animation	1
+Family	1
+Fantasy	1
+Adventure	1
+Comedy	1
+Action	1
+Science Fiction	1
+</code></pre>
+<pre class="hljs"><code><div>%%writefile mapperExamen2_1.py
+<span class="hljs-comment">#!/usr/bin/env python3</span>
+<span class="hljs-keyword">import</span> sys
+
+<span class="hljs-keyword">import</span> sys
+genero_aux = <span class="hljs-literal">None</span>
+contador = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> sys.stdin:
+    line = line.strip()
+    generos, valor = line.split(<span class="hljs-string">'\t'</span>)
+    <span class="hljs-comment">#line = print(f"{generos}\t1")</span>
+    <span class="hljs-keyword">if</span> generos <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+        genero_aux = generos
+    <span class="hljs-keyword">if</span> genero_aux == generos:
+        contador += <span class="hljs-number">0</span>
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">f"<span class="hljs-subst">{genero_aux}</span>\t<span class="hljs-subst">{contador}</span>"</span>)
+        genero_aux = generos
+        contador = <span class="hljs-number">1</span>
+<span class="hljs-keyword">if</span> generos <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:
+    print(<span class="hljs-string">f"<span class="hljs-subst">{genero_aux}</span>\t<span class="hljs-subst">{contador}</span>"</span>)
+
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> sorted(word_dict.items(), key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">1</span>], reverse=<span class="hljs-literal">True</span>):
+    print(<span class="hljs-string">f"<span class="hljs-subst">{value}</span>\t<span class="hljs-subst">{key}</span>"</span>)
+</div></code></pre>
+<p><strong>País con películas más rentables</strong></p>
+<p>Queremos saber qué país tiene una filmografía más rentable (ten en cuenta que <em>budget</em>=presupuesto, <em>revenue</em>=ingresos), así que tienes que obtener un listado de países y beneficios promedio por película ((total ingresos - total presupuestos) / número películas de ese país)</p>
+<pre class="hljs"><code><div>%%writefile mapperExamen3.py
+<span class="hljs-comment">#!/usr/bin/env python3</span>
+
+<span class="hljs-keyword">import</span> sys
+
+
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> sys.stdin:
+    <span class="hljs-comment">#line = 	names	date_x	score	genre	overview	crew	orig_title	status	orig_lang	budget_x	revenue	country</span>
+    line = line.strip()
+    names,date_x,score,genre,overview,crew,orig_title,status,orig_lang,budget_x,revenue,*country = line.split(<span class="hljs-string">','</span>)
+    print(<span class="hljs-string">f"<span class="hljs-subst">{country}</span>\t<span class="hljs-subst">{revenue}</span>\t<span class="hljs-subst">{budget_x}</span>"</span>)
+            
+</div></code></pre>
+<pre><code>Overwriting mapperExamen3.py
+</code></pre>
+<pre class="hljs"><code><div>!head clean_file.csv | python3 mapperExamen3.py
+</div></code></pre>
+<pre><code>['country']	revenue	budget_x
+['AU']	271616668.0	75000000.0
+['AU']	2316794914.0	460000000.0
+['AU']	724459031.0	100000000.0
+['AU']	34200000.0	12300000.0
+['US']	340941958.6	77000000.0
+['AU']	80000000.0	35000000.0
+['AU']	351349364.0	100000000.0
+['AU']	483480577.0	90000000.0
+['US']	254946484.2	71000000.0
+</code></pre>
+
+</body>
+</html>
