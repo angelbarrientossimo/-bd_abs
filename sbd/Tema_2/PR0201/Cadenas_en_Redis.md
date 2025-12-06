@@ -3,9 +3,13 @@
 ---------------------------------------------------------------------------------
 
 Módulo:                     SISTEMAS DE BIG DATA
+
 Profesor:                   Víctor J. González
+
 Unidad de Trabajo:          UT02. Almacenamiento de datos
+
 Práctica:                   PR0201: Cadenas en Redis
+
 Resultados de aprendizaje:  RA3
 
 
