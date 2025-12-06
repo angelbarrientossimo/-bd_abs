@@ -1,3 +1,16 @@
+# PR0202: Cadenas en Redis
+### ------------- ESPECIALIZACIÓN EN INTELIGENCIA ARTIFICIAL Y BIG DATA -------------
+---------------------------------------------------------------------------------
+
+Módulo:                     SISTEMAS DE BIG DATA
+Profesor:                   Víctor J. González
+Unidad de Trabajo:          UT02. Almacenamiento de datos
+Práctica:                   PR0201: Cadenas en Redis
+Resultados de aprendizaje:  RA3
+
+
+## 1. Trabajo con Redis CLI
+
 # 2. Trabajo con Python
 Crea un script en Python que realice las siguientes operaciones con la librería redis. Realiza todos estos pasos en un Notebook de Jupyter y luego descárgalo como Markdown para entregar la práctica.
 
