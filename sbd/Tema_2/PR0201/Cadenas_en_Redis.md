@@ -1,3 +1,31 @@
+# 2. Trabajo con Python
+Crea un script en Python que realice las siguientes operaciones con la librería redis. Realiza todos estos pasos en un Notebook de Jupyter y luego descárgalo como Markdown para entregar la práctica.
+
+Inserta la clave app:version con el valor "1.0".
+
+Recupera y muestra el valor de app:version.
+
+Modifica el valor de app:version a "1.1".
+
+Crea la clave contador:descargas con valor 0.
+
+Incrementa en 5 el valor de contador:descargas.
+
+Decrementa en 2 el valor de contador:descargas.
+
+Inserta la clave app:estado con el valor "activo".
+
+Cambia el valor de app:estado a "mantenimiento".
+
+Inserta la clave mensaje:bienvenida con el texto "Hola alumno".
+
+Establece un tiempo de expiración de 30 segundos para la clave app:estado.
+
+Verifica si la clave app:estado todavía existe después de unos segundos.
+
+Elimina la clave app:version y muestra un mensaje confirmando su eliminación.
+
+
 !pip install redis
 
 
@@ -370,9 +398,3 @@ r.delete("app:version")
 
     1
 
-
-
-
-```python
-
-```
