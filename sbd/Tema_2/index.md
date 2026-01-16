@@ -7,4 +7,4 @@
 - [UT02 - PR0204 Estructuras de datos avanzadas: datos geoespaciales](./PR0204/PR0204.md)
 - [UT02 - PR0205 Escritura de datos en InfluxDB](./PR0205/PR205.md)
 - [UT02 - PR0206: Ingesta de datos financieros en InfluxDB](./PR0206/PR0206.md)
-
+- [UT02 - PR0207: Consultas con Flux](./PR0207/PR0207.md)
